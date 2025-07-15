@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/fonts/font-face-parastoo.css" />
+    <link
+      rel="stylesheet"
+      href="/fonts/google-icons/material-symbols-rounded.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    /> -->
+  </head>
+  <body>
+    <!-- exercise section -->
+    <div id="ExerciseTabContainer" class="tab-container--exercise">
+      <!-- filter section -->
+      <div class="filter-section">
+        <div class="exercise-filter-container">
+          <div class="filter-criteria">
+            <select id="Where" name="Where" class="filters-dropdown-list">
+              <option value="" disabled selected><!-- انتخاب کن.--></option>
+              <option value="0">کل کتاب</option>
+              <option value="bio1">زیست شناسی ۱</option>
+              <option value="bio2">زیست شناسی ۲</option>
+              <option value="bio3">زیست شناسی ۳</option>
+            </select>
+            <label for="Where" class="filters-dropdown-list-label"
+              >از کجای کتاب تمرین می‌خوای؟</label
+            >
+          </div>
+          <div class="filter-criteria">
+            <select id="Level" name="Level" class="filters-dropdown-list">
+              <option value="" disabled selected><!-- انتخاب کن.--></option>
+              <option value="0">همه سطح‌ها</option>
+              <option value="1">ساده</option>
+              <option value="2">متوسط</option>
+              <option value="3">سخت</option>
+            </select>
+            <label for="Level" class="filters-dropdown-list-label"
+              >در چه سطحی باشند؟</label
+            >
+          </div>
+          <div class="filter-criteria">
+            <select id="Source" name="Source" class="filters-dropdown-list">
+              <option value="" disabled selected><!-- انتخاب کن.--></option>
+              <option value="0">همه منابع</option>
+              <option value="امتحان نهایی">امتحان نهایی</option>
+              <option value="کنکور سراسری">کنکور سراسری</option>
+              <option value="تألیفی">تألیفی</option>
+            </select>
+            <label for="Source" class="filters-dropdown-list-label"
+              >از چه منبعی باشند؟</label
+            >
+          </div>
+        </div>
+
+        <div class="btn-container">
+          <button id="StartExerciseBtn" class="start-exercise-btn">
+            <!-- <i class="material-symbols-rounded icon-btn"> filter_alt </i> -->
+            <span>شروع تمرین</span>
+          </button>
+        </div>
+      </div>
+
+      <div id="ExercisesContainer" class="exercises-container">
+        <!-- Row 1 : Navigation Buttons of Exercise Section -->
+        <div class="exercise-navbar">
+          <button class="btn--exercise-prev">
+            <i class="material-symbols-rounded icon-btn">
+              arrow_circle_right
+            </i>
+          </button>
+          <button class="btn--exercise-next">
+            <i class="material-symbols-rounded icon-btn"> arrow_circle_left </i>
+          </button>
+        </div>
+
+        <!-- Row 2 : Exercise Number and Tags -->
+        <div class="number-tags-container">
+          <div class="exercise-number">تمرین شماره ۹۹۸ از ۹۹۹</div>
+          <div class="tags-container">
+            <ul class="tags-list">
+              <a href="#" class="tag"><li>چهار گزینه ای</li></a>
+              <a href="#" class="tag"><li>جای خالی</li></a>
+              <a href="#" class="tag"><li>صورت مبهم</li></a>
+              <a href="#" class="tag"><li>مقایسه ای</li></a>
+              <a href="#" class="tag"><li>مفهومی</li></a>
+              <a href="#" class="tag"><li>متوسط</li></a>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Row 3 : Question Box -->
+        <div class="exercise__question-box">
+          <div class="question-container">
+            <div class="question">
+              <p>کدام گزینه، عبارت زیر را به‌طور مناسب کامل می‌کند؟</p>
+              <p>
+                «در ........... ساختاری که به ذخیرۀ غذا کمک می‌کند و به جانور
+                امکان می‌دهد تا با دفعات کمتر تغذیه، انرژی مورد نیاز خود را
+                تأمین کند، ............»
+              </p>
+            </div>
+
+            <ul class="options">
+              <li>
+                ۱) گوسفند - توانایی تولید آنزیم گوارش دهنده سلولز را دارد.
+              </li>
+              <li>۲) کرم خاکی - فرایند آسیاب کردن غذا را به انجام می‌رساند.</li>
+              <li>
+                ۳) ملخ - ابتدا مواد غذایی را به بخش حجیم انتهای مری وارد
+                می‌نماید.
+              </li>
+              <li>
+                ۴) پرنده دانه‌خوار - ابتدا مواد غذایی را به بخشی در جلوی سنگدان
+                منتقل می‌کند.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Tooltips -->
+          <div class="tooltips-container">
+            <ul id="TooltipsList" class="tooltips-list">
+              <li id="TooltipCorrect" class="tooltip tooltip--correct">
+                <i class="material-symbols-rounded"> check_circle </i>
+                <span>درست گفتم!</span>
+              </li>
+              <li id="TooltipIncorrect" class="tooltip tooltip--incorrect">
+                <i class="material-symbols-rounded"> cancel </i>
+                <span>اشتباه گفتم!</span>
+              </li>
+              <li id="TooltipLike" class="tooltip tooltip--like">
+                <i class="material-symbols-rounded"> favorite </i>
+                <span>سؤال قشنگیه!</span>
+              </li>
+              <li id="TooltipStar" class="tooltip tooltip--star">
+                <i class="material-symbols-rounded"> stars </i>
+                <span>سؤال مهمیه!</span>
+              </li>
+              <li id="TooltipReport" class="tooltip tooltip--report">
+                <i class="material-symbols-rounded"> error </i>
+                <span>ایراد داره!</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Row 4 : Middle Row : answerToggle-authorLink-userInputs -->
+        <div class="exercise__middle-bar">
+          <div class="toggle-author-container">
+            <div id="ShowAnswerBtn" class="btn--show-answer"></div>
+            <div class="exercise-author">
+              <i class="material-symbols-rounded"> draft_orders </i>
+              <span id="AuthorFullName">رضا قزلسفلو</span>
+            </div>
+          </div>
+          <div class="details-inputBtns-container">
+            <div class="exercise-details">
+              امتحان نهایی - اردیبهشت ۱۳۹۸ - ۲ نمره
+            </div>
+            <div class="exercise-inputBtns">
+              <button
+                name="answer_true"
+                class="btn--inputs btn--correct"
+                data-tooltipid="TooltipCorrect"
+              >
+                <i class="material-symbols-rounded icon-btn correct-icon">
+                  check_circle
+                </i></button
+              ><button
+                name="answer_false"
+                class="btn--inputs btn--incorrect"
+                data-tooltipid="TooltipIncorrect"
+              >
+                <i class="material-symbols-rounded icon-btn incorrect-icon">
+                  cancel
+                </i></button
+              ><button
+                name="like"
+                class="btn--inputs btn--like"
+                data-tooltipid="TooltipLike"
+              >
+                <i class="material-symbols-rounded icon-btn heart-icon">
+                  favorite
+                </i></button
+              ><button
+                name="star"
+                class="btn--inputs btn--star"
+                data-tooltipid="TooltipStar"
+              >
+                <i class="material-symbols-rounded icon-btn star-icon">
+                  stars
+                </i></button
+              ><button
+                name="report"
+                class="btn--inputs btn--report"
+                data-tooltipid="TooltipReport"
+              >
+                <i class="material-symbols-rounded icon-btn report-icon">
+                  error
+                </i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 5 : Answer Box -->
+        <div class="exercise__answer-box">
+          <div class="descriptive-answer">
+            <h2>پاسخ: گزینه ۴</h2>
+            <p>
+              منظور از صورت سؤال در گوسفند، سیرابی و در کرم خاکی، ملخ و پرندۀ
+              دانه‌خوار، چینه‌دان است. با توجه به تصویر زیر، در پرندۀ دانه‌خوار،
+              چینه‌دان غذا را به معده که جلوی سنگدان قرار گرفته است، وارد
+              می‌کند.
+              <span class="ref-page" data-ref-page="46">۴۶</span>
+            </p>
+
+            <h2>بررسی سایر گزینه‌ها:</h2>
+
+            <div class="option">
+              <strong>گزینه ۱:</strong> نادرست. در گوسفند (نشخوارکنندگان)،
+              سیرابی توان تولید آنزیم لازم برای هضم سلولز را ندارد و از این نظر
+              وابسته به میکروب‌های دارای آنزیم سلولاز است که در این بخش به‌صورت
+              همزیست وجود دارند.
+
+              <span class="ref-page" data-ref-page="19">۱۹</span>
+            </div>
+
+            <div class="option">
+              <strong>گزینه ۲:</strong> نادرست. شروع گوارش مکانیکی و شیمیایی در
+              انسان از دهان است، نه معده.
+
+              <span class="ref-page" data-ref-page="57">۵۷</span>
+            </div>
+
+            <div class="option">
+              <strong>گزینه ۳:</strong> نادرست. در ملخ، خود چینه‌دان بخش حجیم
+              انتهای مری است که غذا را به پیش‌معده می‌دهد.
+              <span class="ref-page" data-ref-page="25">۲۵</span>
+            </div>
+          </div>
+          <!-- Row 6 : References -->
+          <div class="bottom-bar">
+            <ul class="ref-list">
+              <li class="ref-book horizontally-scrollable">
+                <span class="book">زیست شناسی ۱</span>
+                <ul class="pages horizontally-scrollable">
+                  <li class="ref-page" data-ref-page="19">۱۹</li>
+                  <li class="ref-page" data-ref-page="25">۲۵</li>
+                  <li class="ref-page" data-ref-page="46">۴۶</li>
+                  <li class="ref-page" data-ref-page="57">۵۷</li>
+                  <li class="ref-page" data-ref-page="104">۱۰۴</li>
+                  <li class="ref-page" data-ref-page="8">۸</li>
+                  <li class="ref-page" data-ref-page="67">۶۷</li>
+                  <li class="ref-page" data-ref-page="54">۵۴</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- js scripts -->
+    <script type="module" src="./exerciseApp.js"></script>
+    <script type="module" src="./floating-label.js"></script>
+    <script type="module" src="./exercise-filter-steps.js"></script>
+  </body>
+</html>

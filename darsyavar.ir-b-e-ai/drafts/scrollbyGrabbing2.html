@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Draggable Slider - No Text Selection</title>
+    <style>
+      .parent {
+        width: 300px;
+        border: 5px solid red;
+        overflow-x: hidden;
+        float: left;
+        white-space: nowrap;
+        cursor: grab;
+
+        /* جلوگیری از انتخاب متن */
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+      }
+      .child {
+        width: 1000px;
+        font-size: 15px;
+        font-family: arial;
+        padding: 10px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child">
+        This is a draggable content area. Click and drag horizontally to scroll
+        the content. The content is wider than the container, so you can scroll
+        to see more. Try dragging left and right to see the effect. The red
+        border shows the container boundaries.
+      </div>
+    </div>
+
+    <script>
+      let mouseDown = false;
+      let startX, scrollLeft;
+      const slider = document.querySelector(".parent");
+
+      const startDragging = (e) => {
+        mouseDown = true;
+        startX = e.pageX - slider.offsetLeft;
+        scrollLeft = slider.scrollLeft;
+        slider.style.cursor = "grabbing";
+      };
+
+      const stopDragging = (e) => {
+        mouseDown = false;
+        slider.style.cursor = "grab";
+      };
+
+      const move = (e) => {
+        e.preventDefault();
+        if (!mouseDown) {
+          return;
+        }
+        const x = e.pageX - slider.offsetLeft;
+        const scroll = x - startX;
+        slider.scrollLeft = scrollLeft - scroll;
+      };
+
+      // Add the event listeners
+      slider.addEventListener("mousemove", move, false);
+      slider.addEventListener("mousedown", startDragging, false);
+      slider.addEventListener("mouseup", stopDragging, false);
+      slider.addEventListener("mouseleave", stopDragging, false);
+    </script>
+  </body>
+</html>

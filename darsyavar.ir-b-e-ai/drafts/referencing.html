@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>ارجاع متن</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        direction: rtl;
+        padding: 20px;
+      }
+      .container {
+        display: flex;
+        gap: 20px;
+      }
+      .text-box {
+        border: 1px solid #999;
+        padding: 10px;
+        width: 45%;
+        height: 200px;
+        overflow-y: auto;
+        background: #fefefe;
+      }
+      .label {
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      button {
+        margin-top: 10px;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="label">🟨 متن مرجع (منبع ارجاع):</div>
+    <div id="sourceText" class="text-box" contenteditable="true">
+      این متن مربوط به منبع ارجاع است. شما می‌توانید بخشی از این متن را بعد از
+      انتخاب متن مقصد انتخاب کنید.
+    </div>
+
+    <div class="label">🟦 متن مقصد (محل نیاز به ارجاع):</div>
+    <div id="targetText" class="text-box" contenteditable="true">
+      این متن مربوط به مقصد ارجاع است. ابتدا بخشی از این متن را انتخاب کرده و
+      سپس دکمه "ارجاع" را بزنید.
+    </div>
+
+    <button id="startReferenceBtn">ارجاع</button>
+    <button id="saveReferenceBtn" disabled>ثبت ارجاع</button>
+
+    <script>
+      let targetSelection = "";
+      let sourceSelection = "";
+
+      const targetBox = document.getElementById("targetText");
+      const sourceBox = document.getElementById("sourceText");
+      const startBtn = document.getElementById("startReferenceBtn");
+      const saveBtn = document.getElementById("saveReferenceBtn");
+
+      function getSelectedTextInElement(el) {
+        const selection = window.getSelection();
+        if (!selection.rangeCount || selection.isCollapsed) return "";
+        const range = selection.getRangeAt(0);
+        const container = range.commonAncestorContainer;
+        return el.contains(container) ? selection.toString() : "";
+      }
+
+      startBtn.addEventListener("click", () => {
+        targetSelection = getSelectedTextInElement(targetBox);
+        if (!targetSelection) {
+          alert("لطفاً ابتدا عبارتی را در متن مقصد انتخاب کنید.");
+          return;
+        }
+        alert(
+          'عبارت مقصد ثبت شد. حالا از متن مرجع انتخاب کنید و سپس روی "ثبت ارجاع" کلیک کنید.'
+        );
+        saveBtn.disabled = false;
+      });
+
+      saveBtn.addEventListener("click", () => {
+        sourceSelection = getSelectedTextInElement(sourceBox);
+        if (!sourceSelection) {
+          alert("لطفاً عبارتی را در متن مرجع انتخاب کنید.");
+          return;
+        }
+
+        console.log("✅ ارجاع ثبت شد:");
+        console.log("مقصد:", targetSelection);
+        console.log("منبع:", sourceSelection);
+
+        alert(
+          `ارجاع ثبت شد ✅\nمقصد: ${targetSelection}\nمنبع: ${sourceSelection}`
+        );
+
+        // پاک‌سازی
+        targetSelection = "";
+        sourceSelection = "";
+        saveBtn.disabled = true;
+      });
+    </script>
+  </body>
+</html>

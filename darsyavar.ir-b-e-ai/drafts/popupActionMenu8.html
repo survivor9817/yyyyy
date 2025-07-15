@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>نمایش دکمه‌های سفارشی با انتخاب متن</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        padding: 20px;
+      }
+
+      .custom-buttons-container {
+        position: absolute;
+        background: black;
+        border-radius: 5px;
+        padding: 5px;
+        display: none;
+        z-index: 1000;
+      }
+
+      .custom-btn {
+        background: #333;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        margin: 2px;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+
+      .no-select {
+        -webkit-user-select: none; /* برای مرورگرهای وبکیت مثل کروم و سافاری */
+        -moz-user-select: none; /* برای فایرفاکس */
+        -ms-user-select: none; /* برای اینترنت اکسپلورر/ادج */
+        user-select: none; /* استاندارد جدید */
+      }
+
+      .custom-btn:hover {
+        background: #555;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>انتخاب متن و نمایش دکمه‌های سفارشی</h1>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p class="no-select">
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+      <p>
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است...
+      </p>
+
+      <!-- پاراگراف‌های دیگه هم همینطور -->
+    </div>
+
+    <div class="custom-buttons-container no-select" id="customButtons">
+      <button class="custom-btn" onclick="copyText()">کپی</button>
+      <button class="custom-btn" onclick="searchText()">جستجو</button>
+    </div>
+
+    <script>
+      let selectedText = "";
+      let textSelectionToolbar = document.getElementById("customButtons");
+      let debounceTimeout;
+
+      document.addEventListener("mousedown", function (e) {
+        if (!textSelectionToolbar.contains(e.target)) {
+          hideTextSelectionToolbar();
+        }
+      });
+
+      document.addEventListener("selectionchange", () => {
+        if (textSelectionToolbar.style.display !== "none") {
+          hideTextSelectionToolbar();
+        }
+
+        clearTimeout(debounceTimeout);
+        debounceTimeout = setTimeout(() => {
+          const selection = window.getSelection();
+          selectedText = selection.toString().trim();
+
+          if (selectedText.length > 0) {
+            showTextSelectionToolbar(selection);
+          } else {
+            hideTextSelectionToolbar();
+          }
+        }, 400);
+      });
+
+      function showTextSelectionToolbar(selection) {
+        if (selection.rangeCount > 0) {
+          const range = selection.getRangeAt(0);
+          const rects = range.getClientRects();
+          const lastRect =
+            rects[rects.length - 1] || range.getBoundingClientRect();
+
+          const top = window.scrollY + lastRect.bottom + 10;
+          const left = window.scrollX + lastRect.left;
+
+          textSelectionToolbar.style.top = top + "px";
+          textSelectionToolbar.style.left = left + "px";
+          textSelectionToolbar.style.display = "block";
+        }
+      }
+
+      function hideTextSelectionToolbar() {
+        textSelectionToolbar.style.display = "none";
+      }
+
+      function copyText() {
+        if (selectedText) {
+          navigator.clipboard.writeText(selectedText).then(
+            () => alert("کپی شد"),
+            () => alert("خطا در کپی")
+          );
+          hideTextSelectionToolbar();
+        }
+      }
+
+      function searchText() {
+        if (selectedText) {
+          window.open(
+            `https://www.google.com/search?q=${encodeURIComponent(
+              selectedText
+            )}`,
+            "_blank"
+          );
+          hideTextSelectionToolbar();
+        }
+      }
+    </script>
+  </body>
+</html>

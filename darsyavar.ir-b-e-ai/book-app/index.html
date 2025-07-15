@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- styles -->
+    <link rel="stylesheet" href="/normalize.css" />
+    <link rel="stylesheet" href="/fonts/font-face-parastoo.css" />
+    <link
+      rel="stylesheet"
+      href="/fonts/google-icons/material-symbols-rounded.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+
+    <!-- lab styles -->
+    <style>
+      body {
+        background-color: #ebebeb;
+      }
+
+      .book-section {
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- book app -->
+    <div id="BookApp" class="book-app">
+      <div id="FehrestSection" class="fehrest-section">
+        <header class="sidebar-header">
+          <label for="BooksDropdownList" class="books-dropdown-list-label"
+            >فهرست کتاب</label
+          >
+          <select
+            id="BooksDropdownList"
+            name="BooksDropdownList"
+            class="books-dropdown-list"
+          ></select>
+        </header>
+        <ol id="TocList" class="toc-list"></ol>
+      </div>
+
+      <!-- bottom book toolbar -->
+      <div id="BookToolbar" class="book__toolbar">
+        <div id="PageNavigator" class="page-navigator">
+          <button id="PrevPageBtn" class="btn--prev-page">
+            <i class="material-symbols-rounded icon-btn">
+              arrow_circle_right
+            </i>
+          </button>
+          <button id="NextPageBtn" class="btn--next-page">
+            <i class="material-symbols-rounded icon-btn"> arrow_circle_left </i>
+          </button>
+
+          <input
+            id="PageInput2"
+            type="range"
+            min="1"
+            maxlength="3"
+            value="1"
+            step="1"
+          />
+          <input id="PageInput" type="number" min="1" maxlength="3" value="1" />
+        </div>
+      </div>
+
+      <!-- book section -->
+      <div id="BookSection" class="book-section"></div>
+    </div>
+
+    <!-- javascripts -->
+    <script type="module" src="./bookApp.js"></script>
+  </body>
+</html>

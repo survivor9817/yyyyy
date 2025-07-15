@@ -1,0 +1,298 @@
+/* button {
+    all: unset;
+} */
+
+* {
+  box-sizing: border-box;
+}
+
+/* in code baraaye bastane zoom do zarbe i dar chrome iphone va safari e */
+button {
+  touch-action: manipulation;
+}
+
+/* sidebars */
+.sidebars {
+  position: fixed;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  padding: 12px;
+  background-color: #ebebeb;
+  overflow-x: hidden;
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidebar--right {
+  /* border-top-left-radius: 24px; */
+  /* border-bottom-left-radius: 24px; */
+  right: 0;
+  transform: translateX(+105%);
+  box-shadow: -2px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  z-index: 70;
+  padding-top: 32px;
+  /* scrollbar-width: none;  */
+  /* -ms-overflow-style: none;  */
+}
+
+.fehrest-backdrop {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: black;
+  opacity: 20%;
+  z-index: 65;
+}
+
+.opened-sidebar + .fehrest-backdrop {
+  display: block;
+}
+
+.sidebar--left {
+  left: 0;
+  transform: translateX(-105%);
+  box-shadow: 2px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}
+
+.opened-sidebar {
+  transform: translateX(0%);
+}
+
+.menu-backdrop {
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  background-color: black;
+  opacity: 50%;
+  z-index: 80;
+}
+
+.opened-sidebar + .menu-backdrop {
+  display: block;
+}
+
+.btn--sidebar-closer {
+  all: unset;
+  /* box-sizing: border-box; */
+  cursor: pointer;
+  height: 36px;
+  width: 36px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 8px;
+  /* border: 2px solid #b9b9b9; */
+  border-radius: 64px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+.btn--sidebar-closer:hover {
+  background-color: rgba(0, 0, 0, 0.1); /* فقط کمی تغییر رنگ پس‌زمینه */
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.2); */
+  transform: scale(1.05);
+}
+
+.icon--cancel {
+  font-size: 36px;
+}
+
+/* mid section */
+.mid-section {
+  display: flex;
+  justify-content: center;
+}
+
+.main-content {
+  min-width: 315px;
+  max-width: 840px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 600px) {
+  .main-content {
+    flex-direction: column-reverse;
+  }
+}
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  /* z-index: 12; */
+}
+
+.nav-btn {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 56px;
+  width: 64px;
+  border: none;
+  cursor: pointer;
+  background: #eee;
+  transition: background 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: #ddd;
+}
+
+.icon--fehrest {
+  font-size: 36px;
+  transform: scaleX(-1);
+}
+
+.tab-btns-container {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
+  /* justify-content: center; */
+}
+
+.fehrest-btn .tab-label,
+.menu-btn .tab-label {
+  display: none;
+}
+
+.tab-btn--book,
+.tab-btn--exercise,
+.tab-btn--ai {
+  flex-grow: 1;
+}
+
+.icon--book {
+  font-size: 32px;
+}
+
+.icon--exercise {
+  font-size: 32px;
+  transform: rotate(45deg);
+}
+
+.icon--ai {
+  font-size: 32px;
+}
+
+.tab-label {
+  margin-right: 8px;
+}
+
+.active-tab-indicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 4px;
+  background-color: dodgerblue;
+  transition: transform 0.3s;
+}
+
+@media screen and (max-width: 600px) {
+  .fehrest-btn .tab-label,
+  .menu-btn .tab-label {
+    display: block;
+  }
+
+  .tab-label {
+    margin-right: 0px;
+    font-size: 14px;
+  }
+
+  .nav-btn {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .icon--menu {
+    font-size: 30px;
+  }
+
+  /* .navbar {
+      height: 60px;
+    } */
+
+  .active-tab-indicator {
+    top: 0;
+  }
+}
+
+/* .switch-tab .active-tab-indicator {
+  transform: translateX(-100%);
+} */
+
+.icon--menu {
+  font-size: 30px;
+}
+
+.tabs-container {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.3s ease;
+  height: calc(100dvh - 58px);
+  width: 300%;
+  /* height: calc(100vh - 58px); */
+}
+
+/* .switch-tab .tab-containers {
+    transform: translateX(100%);
+} */
+
+.tab-container {
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 33.33%;
+  /* max-width: 100%; */
+  position: relative;
+}
+
+/* .tab-container--book,
+.tab-container--exercise {
+  flex-shrink: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 50%;
+  position: relative;
+} */
+/* max-width: 100%; */
+
+/* text selection toolbar */
+.text-selection-toolbar {
+  position: absolute;
+  background: black;
+  border-radius: 5px;
+  padding: 5px;
+  display: none;
+  z-index: 1000;
+}
+
+.add-ref-btn {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin: 2px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.no-select {
+  -webkit-user-select: none; /* برای مرورگرهای وبکیت مثل کروم و سافاری */
+  -moz-user-select: none; /* برای فایرفاکس */
+  -ms-user-select: none; /* برای اینترنت اکسپلورر/ادج */
+  user-select: none; /* استاندارد جدید */
+}
+
+.add-ref-btn:hover {
+  background: #555;
+}

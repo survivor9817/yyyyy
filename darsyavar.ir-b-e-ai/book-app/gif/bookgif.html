@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>کتاب ورق‌زن</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 50px;
+        font-family: sans-serif;
+      }
+      video {
+        width: 50px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+      button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <video id="bookVideo" muted playsinline preload="auto">
+      <source src="./gif/book_flip.webm" type="video/webm" />
+      مرورگر شما از ویدیو پشتیبانی نمی‌کند.
+    </video>
+
+    <button onclick="playBook()">ورق بزن!</button>
+
+    <script>
+      const bookVideo = document.getElementById("bookVideo");
+
+      function playBook() {
+        bookVideo.currentTime = 0;
+        bookVideo.play();
+      }
+
+      // اختیاری: بعد از پایان، به فریم اول برگرده
+      bookVideo.addEventListener("ended", () => {
+        bookVideo.currentTime = 0;
+        bookVideo.pause();
+      });
+    </script>
+  </body>
+</html>
