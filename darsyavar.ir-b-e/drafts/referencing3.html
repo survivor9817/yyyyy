@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>درج ستاره بعد از پایان کلمه</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 2;
+        direction: rtl;
+        padding: 2em;
+      }
+
+      #content {
+        border: 1px solid #ccc;
+        padding: 1em;
+      }
+
+      .star-marker {
+        color: blue;
+        font-weight: bold;
+      }
+
+      #saveBtn {
+        margin-top: 1em;
+        padding: 0.5em 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <p>پاراگراف اول: زندگی زیباست و پر از تجربه‌های آموزنده.</p>
+      <p>پاراگراف دوم: مطالعه مداوم می‌تواند موفقیت را تضمین کند.</p>
+      <p>
+        پاراگراف سوم: دانش زیست‌شناسی ما را با ساختارهای پیچیده حیات آشنا
+        می‌سازد.
+      </p>
+    </div>
+
+    <button id="saveBtn">📌 ثبت مرجع</button>
+
+    <script>
+      function isWordChar(char) {
+        return /[\wآ-ی‌]/.test(char); // شامل حروف فارسی، لاتین، عدد و نیم‌فاصله
+      }
+
+      function expandToWordEnd(node, offset) {
+        if (node.nodeType !== Node.TEXT_NODE) return offset;
+
+        const text = node.nodeValue;
+        let i = offset;
+        if (text[i - 1] === " ") return i - 1;
+        while (i < text.length && isWordChar(text[i])) {
+          i++;
+        }
+
+        return i; // اندیس بعد از آخرین کاراکتر کلمه
+      }
+
+      document.getElementById("saveBtn").addEventListener("click", () => {
+        const selection = window.getSelection();
+        if (!selection.rangeCount || selection.isCollapsed) {
+          alert("لطفاً بخشی از متن را انتخاب کنید.");
+          return;
+        }
+
+        const range = selection.getRangeAt(0);
+        let endContainer = range.endContainer;
+        let endOffset = range.endOffset;
+        console.log(endOffset, endContainer, endContainer.nodeValue);
+
+        // اگه به نود غیر متنی ختم بشه، دنبال اولین نود متنی توی اون می‌گردیم
+        if (
+          endContainer.nodeType !== Node.TEXT_NODE &&
+          endContainer.childNodes.length > 0
+        ) {
+          for (let child of endContainer.childNodes) {
+            if (child.nodeType === Node.TEXT_NODE) {
+              endContainer = child;
+              endOffset = 0;
+              break;
+            }
+          }
+        }
+
+        // اگر آخرین کاراکتر وسط یک کلمه‌ست، به انتهای کلمه برو
+        const expandedOffset = expandToWordEnd(endContainer, endOffset);
+        console.log(expandedOffset, endContainer);
+
+        // ساخت و درج ستاره
+        const star = document.createElement("span");
+        star.textContent = "*";
+        star.className = "star-marker";
+
+        const newRange = document.createRange();
+        newRange.setStart(endContainer, expandedOffset);
+        newRange.collapse(true); // insertion point
+
+        newRange.insertNode(star);
+
+        selection.removeAllRanges(); // پاک‌کردن انتخاب
+      });
+    </script>
+  </body>
+</html>
