@@ -178,7 +178,7 @@ in baraye ine ke kollan dide nashan mohtavaye biton zade az element:
   padding: 8px 0;
   /* max-width: 170px; */
   position: absolute;
-  bottom: 0dvh;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   /* right: 50%; */
