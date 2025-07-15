@@ -49,10 +49,11 @@ function activatePageNavTools() {
   pageInputNumberElement.addEventListener("focus", () => {
     selectedPageNumberOnFocus = currentBookData.observingPageNumber;
     pageInputNumberElement.select();
-    window.scrollTo({
-      top: document.body.scrollHeight,
-      behavior: "smooth", // برای اسکرول نرم
+setTimeout(() => {
+    pageInputNumberElement.scrollIntoView({
+      behavior: "smooth"
     });
+  }, 300);
   });
 
   pageInputNumberElement.addEventListener("blur", () => {
