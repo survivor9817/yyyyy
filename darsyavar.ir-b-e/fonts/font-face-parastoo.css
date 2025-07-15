@@ -1,0 +1,72 @@
+@font-face {
+  font-family: Parastoo;
+  src: url("./Parastoo.eot");
+  src: url("./Parastoo.eot?#iefix") format("embedded-opentype"),
+    url("./Parastoo.woff2") format("woff2"),
+    url("./Parastoo.woff") format("woff"),
+    url("./Parastoo.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Parastoo;
+  src: url("./Parastoo-Bold.eot");
+  src: url("./Parastoo-Bold.eot?#iefix") format("embedded-opentype"),
+    url("./Parastoo-Bold.woff2") format("woff2"),
+    url("./Parastoo-Bold.woff") format("woff"),
+    url("./Parastoo-Bold.ttf") format("truetype");
+  font-weight: bold;
+}
+
+* {
+  box-sizing: border-box;
+  /* font-size: 18px; */
+  font-family: parastoo;
+  font-weight: 500;
+}
+
+/* Reset پایه برای عناصر اصلی */
+a,
+button,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  background: transparent;
+  color: inherit;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+/* ریست ویژه برای لیست‌ها */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ریست ویژه برای دکمه‌ها */
+button {
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* ریست ویژه برای لینک‌ها */
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ریست برای فوکوس قابل دسترس‌تر (اختیاری اما توصیه شده) */
+/* a:focus, button:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+} */

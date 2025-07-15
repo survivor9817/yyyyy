@@ -1,0 +1,101 @@
+.menu-section {
+    display: grid;
+    grid-template-areas: 
+        "profile-img           profile-name "
+        "profile-img           user-role "
+        "divider               divider "
+        "menu-items-container  menu-items-container";
+    grid-template-columns: auto 1fr;
+    /* justify-items: stretch; */
+    /* align-items: stretch; */
+    margin-top: 24px;
+    gap: 8px 16px;
+    margin-right: 8px;
+}
+
+.profile-img {
+    grid-area: profile-img;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    margin-right: 16px;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    /* margin: 0 16px 16px 16px; */
+}
+
+.profile-name {
+    grid-area: profile-name;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 6px;
+}
+
+.user-role {
+    grid-area: user-role;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    padding: 4px 12px;
+    border-radius: 36px;
+    width: fit-content;
+    
+}
+
+.divider {
+    grid-area: divider;
+    height: 1px;
+    background-color: rgb(108, 108, 108);
+    margin: 8px 0px;
+    border-radius: 30px;
+}
+
+.menu-items-container {
+    grid-area: menu-items-container;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.menu-item::before {
+    content: "❯";
+    font-size: 16px;
+    color: #000;
+    margin: 0 8px;
+}
+
+
+.menu-item {
+    color: #000;
+    font-weight: 600;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    font-size: 16px;
+    /* margin: 8px 0; */
+    padding: 8px 8px;
+    /* margin-bottom: 4px; */
+}
+
+.menu-item {
+    display: block;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.5s;
+}
+
+.menu-item:hover {
+    color: #333;
+    background-color: rgb(145, 198, 255);
+    /* background-color: rgba(225, 163, 193, 0.6); */
+}
+
+.menu-item.active {
+    color: #333;
+    background-color: rgb(0, 123, 255);
+    /* background-color: rgba(225, 163, 193); */
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fa">
+  <head>
+    <meta charset="UTF-8" />
+    <title>درج ستاره بعد از انتخاب چند پاراگرافی</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        line-height: 2;
+        direction: rtl;
+        padding: 2em;
+      }
+
+      #content {
+        border: 1px solid #ccc;
+        padding: 1em;
+      }
+
+      .star-marker {
+        color: blue;
+        font-weight: bold;
+      }
+
+      #saveBtn {
+        margin-top: 1em;
+        padding: 0.5em 1em;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="content">
+      <p>پاراگراف اول: زندگی زیباست و پر از تجربه‌های آموزنده.</p>
+      <p>پاراگراف دوم: مطالعه مداوم می‌تواند موفقیت را تضمین کند.</p>
+      <p>
+        پاراگراف سوم: دانش زیست‌شناسی ما را با ساختارهای پیچیده حیات آشنا
+        می‌سازد.
+      </p>
+    </div>
+
+    <button id="saveBtn">📌 ثبت مرجع</button>
+
+    <script>
+      document.getElementById("saveBtn").addEventListener("click", () => {
+        const selection = window.getSelection();
+        if (!selection.rangeCount || selection.isCollapsed) {
+          alert("لطفاً بخشی از متن را انتخاب کنید.");
+          return;
+        }
+
+        const range = selection.getRangeAt(0);
+        const star = document.createElement("span");
+        star.textContent = "★";
+        star.className = "star-marker";
+
+        // در انتهای محدوده انتخاب‌شده درج می‌کنیم
+        range.collapse(false); // جابجا شدن انتهای رنج به بعد از انتخاب
+        range.insertNode(star);
+
+        selection.removeAllRanges(); // پاک‌کردن انتخاب
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,113 @@
+﻿/**
+*
+*	Name:		IRANSharp Font
+*	Version:		3.0
+*	Author:		Moslem Ebrahimi (moslemebrahimi.com)
+*	Created on:	June 10, 2017
+*	Updated on:	June 10, 2017
+*	Website:		http://fontiran.com
+*	Copyright:	Commercial/Proprietary Software
+--------------------------------------------------------------------------------------
+فونت ایران شارپ یک نرم افزار مالکیتی محسوب می شود. جهت آگاهی از قوانین استفاده از این فونت ها لطفا به وب سایت (فونت ایران دات کام) مراجعه نمایید
+--------------------------------------------------------------------------------------
+IRANSharp fonts are considered a proprietary software. To gain information about the laws regarding the use of these fonts, please visit www.fontiran.com 
+--------------------------------------------------------------------------------------
+This set of fonts are used in this project under the license: (.....)
+--------------------------------------------------------------------------------------
+*	
+**/
+@font-face {
+  font-family: iransharp;
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/eot/iranyekanwebbold.eot");
+  src: url("../fonts/eot/iransharp_bold_web.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */ url("../fonts/woff2/iransharp_bold_web.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../fonts/woff/iransharp_bold_web.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../fonts/ttf/iransharp_bold_web.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: iransharp;
+  font-style: normal;
+  font-weight: 300;
+  src: url("../fonts/eot/iransharp_light_web.eot");
+  src: url("../fonts/eot/iransharp_light_web.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */ url("../fonts/woff2/iransharp_light_web.woff2") format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/ url("../fonts/woff/iransharp_light_web.woff")
+      format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../fonts/ttf/iransharp_light_web.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: iransharp;
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/eot/iransharp_regular_web.eot");
+  src: url("../fonts/eot/iransharp_regular_web.eot?#iefix")
+      format("embedded-opentype"),
+    /* IE6-8 */ url("../fonts/woff2/iransharp_regular_web.woff2")
+      format("woff2"),
+    /* FF39+,Chrome36+, Opera24+*/
+      url("../fonts/woff/iransharp_regular_web.woff") format("woff"),
+    /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+      url("../fonts/ttf/iransharp_regular_web.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+  /* font-size: 18px; */
+  font-family: iransharp;
+  font-weight: 500;
+}
+
+/* Reset پایه برای عناصر اصلی */
+a,
+button,
+ul,
+ol,
+li {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+  background: transparent;
+  color: inherit;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+/* ریست ویژه برای لیست‌ها */
+ul,
+ol {
+  list-style: none;
+}
+
+/* ریست ویژه برای دکمه‌ها */
+button {
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* ریست ویژه برای لینک‌ها */
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ریست برای فوکوس قابل دسترس‌تر (اختیاری اما توصیه شده) */
+/* a:focus, button:focus {
+  outline: 2px solid #4d90fe;
+  outline-offset: 2px;
+} */
