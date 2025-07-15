@@ -49,11 +49,6 @@ function activatePageNavTools() {
   pageInputNumberElement.addEventListener("focus", () => {
     selectedPageNumberOnFocus = currentBookData.observingPageNumber;
     pageInputNumberElement.select();
-setTimeout(() => {
-    pageInputNumberElement.scrollIntoView({
-      behavior: "smooth"
-    });
-  }, 300);
   });
 
   pageInputNumberElement.addEventListener("blur", () => {
