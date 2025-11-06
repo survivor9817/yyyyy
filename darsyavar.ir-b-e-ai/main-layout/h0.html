@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>darsyavar.ir</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="../normalize.css" />
+    <!-- <link rel="stylesheet" href="./fonts/font-face-parastoo.css" /> -->
+    <link rel="stylesheet" href="../fonts/WebFonts/css/fontiran.css" />
+    <link rel="stylesheet" href="../fonts/google-icons/material-symbols-rounded.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="../exercise-app/styles.css" />
+    <link rel="stylesheet" href="../book-app/styles.css" />
+    <link rel="stylesheet" href="../menu-sidebar/menu-styles.css" />
+    <link rel="stylesheet" href="../yavar-ai/styles.css" />
+
+    <!-- ravesh zir baraaye bastane zoom do zarbe i monaaseb nist -->
+    <!-- <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    /> -->
+  </head>
+  <body>
+    <!-- main page layout -->
+
+    <!-- sidebars -->
+
+    <!-- right menu -->
+    <div id="FehrestRightSidebar" class="sidebars sidebar--right">
+      <button id="CloseFehrestBtn" class="btn--sidebar-closer">
+        <i class="material-symbols-rounded icon--cancel"> cancel </i>
+      </button>
+      <div id="FehrestSection" class="fehrest-section">
+        <header class="sidebar-header">
+          <label for="BooksDropdownList" class="books-dropdown-list-label">فهرست کتاب</label>
+          <select
+            id="BooksDropdownList"
+            name="BooksDropdownList"
+            class="books-dropdown-list"
+          ></select>
+        </header>
+        <ol id="TocList" class="toc-list"></ol>
+      </div>
+    </div>
+    <div id="FehrestBackdrop" class="fehrest-backdrop"></div>
+
+    <!-- left menu -->
+    <div id="MenuLeftSidebar" class="sidebars sidebar--left">
+      <button id="CloseMenuBtn" class="btn--sidebar-closer">
+        <i class="material-symbols-rounded icon--cancel"> cancel </i>
+      </button>
+      <div id="MenuSection" class="menu-section">
+        <img src="" alt="profile-img" id="ProfileImg" class="profile-img" />
+        <div id="ProfileName" class="profile-name">رضا قزلسفلو</div>
+        <span id="UserRole" class="user-role">معلم مدرسه</span>
+        <div class="divider"></div>
+        <ul class="menu-items-container">
+          <li class="menu-item">صفحه کاربری</li>
+          <li class="menu-item">خرید جدید</li>
+          <li class="menu-item">تمرین‌های قبلی</li>
+          <li class="menu-item">طراحی امتحان</li>
+          <li class="menu-item">اضافه کردن سؤال</li>
+          <li class="menu-item">تنظیمات</li>
+        </ul>
+      </div>
+    </div>
+    <div id="MenuBackdrop" class="menu-backdrop"></div>
+
+    <!-- mid section -->
+    <div id="MidSection" class="mid-section">
+      <div id="MainContent" class="main-content">
+        <div id="Navbar" class="navbar">
+          <button id="FehrestBtn" class="fehrest-btn nav-btn">
+            <i class="material-symbols-rounded icon--fehrest"> list </i>
+            <span class="tab-label">فهرست</span>
+          </button>
+          <div id="TabBtnsContainer" class="tab-btns-container">
+            <button id="BookTabBtn" class="tab-btn--book nav-btn">
+              <i class="material-symbols-rounded icon--book"> menu_book </i>
+              <span class="tab-label">کتاب</span>
+            </button>
+            <button id="ExerciseTabBtn" class="tab-btn--exercise nav-btn">
+              <i class="material-symbols-rounded icon--exercise"> exercise </i>
+              <span class="tab-label">تمرین</span>
+            </button>
+            <button id="aiTabBtn" class="tab-btn--ai nav-btn">
+              <i class="material-symbols-rounded icon--ai"> school </i>
+              <span class="tab-label">یاور</span>
+            </button>
+            <div id="ActiveTabIndicator" class="active-tab-indicator"></div>
+          </div>
+          <button id="MenuBtn" class="menu-btn nav-btn">
+            <i class="material-symbols-rounded icon--menu"> menu </i>
+            <span class="tab-label">منو</span>
+          </button>
+        </div>
+        <div id="TabsContainer" class="tabs-container">
+          <div id="BookTabContainer" class="tab-container tab-container--book">
+            <!-- textSelectionToolbarB -->
+            <div class="text-selection-toolbar no-select" id="textSelectionToolbarB">
+              <button class="add-ref-btn" id="submitRefBtn">ثبت</button>
+            </div>
+
+            <!-- bottom book toolbar -->
+            <div id="BookToolbar" class="book__toolbar">
+              <div id="PageNavigator" class="page-navigator">
+                <button id="PrevPageBtn" class="btn--prev-page">
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_right </i>
+                </button>
+                <button id="NextPageBtn" class="btn--next-page">
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_left </i>
+                </button>
+
+                <input id="PageInput2" type="range" min="1" maxlength="3" value="1" step="1" />
+                <input id="PageInput" type="text" min="1" pattern="" inputmode="numeric" />
+              </div>
+            </div>
+
+            <!-- book section -->
+            <div id="BookSection" class="book-section"></div>
+          </div>
+
+          <div id="ExerciseTabContainer" class="tab-container tab-container--exercise">
+            <!-- filter section -->
+            <div class="filter-section">
+              <div class="exercise-filter-container">
+                <div class="filter-criteria">
+                  <select id="Where" name="Where" class="filters-dropdown-list"></select>
+                  <label for="Where" class="filters-dropdown-list-label"
+                    >از کجای کتاب تمرین می‌خوای؟</label
+                  >
+                </div>
+                <div class="filter-criteria">
+                  <select id="Level" name="Level" class="filters-dropdown-list">
+                    <option value="" disabled selected>
+                      <!-- انتخاب کن.-->
+                    </option>
+                    <option value="0">همه سطح‌ها</option>
+                    <option value="1">ساده</option>
+                    <option value="2">متوسط</option>
+                    <option value="3">سخت</option>
+                  </select>
+                  <label for="Level" class="filters-dropdown-list-label">در چه سطحی باشند؟</label>
+                </div>
+                <div class="filter-criteria">
+                  <select id="Source" name="Source" class="filters-dropdown-list">
+                    <option value="" disabled selected>
+                      <!-- انتخاب کن.-->
+                    </option>
+                    <option value="0">همه منابع</option>
+                    <option value="امتحان نهایی">امتحان نهایی</option>
+                    <option value="شبه نهایی">شبه نهایی</option>
+                    <option value="کنکور سراسری">کنکور سراسری</option>
+                    <option value="تیزهوشان">تیزهوشان</option>
+                    <option value="نمونه دولتی">نمونه دولتی</option>
+                    <option value="تألیفی">تألیفی</option>
+                  </select>
+                  <label for="Source" class="filters-dropdown-list-label">از چه منبعی باشند؟</label>
+                </div>
+              </div>
+
+              <div class="btn-container">
+                <button id="StartExerciseBtn" class="start-exercise-btn">
+                  <!-- <i class="material-symbols-rounded icon-btn"> filter_alt </i> -->
+                  <span>شروع تمرین</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="ExercisesContainer" class="exercises-container">
+              <!-- Row 1 : Navigation Buttons of Exercise Section -->
+              <div class="exercise-navbar">
+                <button class="btn--exercise-prev">
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_right </i>
+                </button>
+                <button class="btn--exercise-next">
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_left </i>
+                </button>
+              </div>
+
+              <!-- Row 2 : Exercise Number and Tags -->
+              <div class="number-tags-container">
+                <div class="exercise-number">تمرین شماره ۹۹۸ از ۹۹۹</div>
+                <div class="tags-container">
+                  <ul class="tags-list">
+                    <a href="#" class="tag"><li>چهار گزینه ای</li></a>
+                    <a href="#" class="tag"><li>جای خالی</li></a>
+                    <a href="#" class="tag"><li>صورت مبهم</li></a>
+                    <a href="#" class="tag"><li>مقایسه ای</li></a>
+                    <a href="#" class="tag"><li>مفهومی</li></a>
+                    <a href="#" class="tag"><li>متوسط</li></a>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Row 3 : Question Box -->
+              <div class="exercise__question-box">
+                <div class="question-container">
+                  <div class="question">
+                    <p>کدام گزینه، عبارت زیر را به‌طور مناسب کامل می‌کند؟</p>
+                    <p>
+                      «در ........... ساختاری که به ذخیرۀ غذا کمک می‌کند و به جانور امکان می‌دهد تا
+                      با دفعات کمتر تغذیه، انرژی مورد نیاز خود را تأمین کند، ............»
+                    </p>
+                  </div>
+
+                  <ul class="options">
+                    <li>۱) گوسفند - توانایی تولید آنزیم گوارش دهنده سلولز را دارد.</li>
+                    <li>۲) کرم خاکی - فرایند آسیاب کردن غذا را به انجام می‌رساند.</li>
+                    <li>۳) ملخ - ابتدا مواد غذایی را به بخش حجیم انتهای مری وارد می‌نماید.</li>
+                    <li>
+                      ۴) پرنده دانه‌خوار - ابتدا مواد غذایی را به بخشی در جلوی سنگدان منتقل می‌کند.
+                    </li>
+                  </ul>
+                </div>
+
+                <!-- Tooltips -->
+                <div class="tooltips-container">
+                  <ul id="TooltipsList" class="tooltips-list">
+                    <li id="TooltipCorrect" class="tooltip tooltip--correct">
+                      <i class="material-symbols-rounded"> check_circle </i>
+                      <span>درست گفتم!</span>
+                    </li>
+                    <li id="TooltipIncorrect" class="tooltip tooltip--incorrect">
+                      <i class="material-symbols-rounded"> cancel </i>
+                      <span>اشتباه گفتم!</span>
+                    </li>
+                    <li id="TooltipLike" class="tooltip tooltip--like">
+                      <i class="material-symbols-rounded"> favorite </i>
+                      <span>سؤال قشنگیه!</span>
+                    </li>
+                    <li id="TooltipStar" class="tooltip tooltip--star">
+                      <i class="material-symbols-rounded"> stars </i>
+                      <span>سؤال مهمیه!</span>
+                    </li>
+                    <li id="TooltipReport" class="tooltip tooltip--report">
+                      <i class="material-symbols-rounded"> error </i>
+                      <span>ایراد داره!</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Row 4 : Middle Row : answerToggle-authorLink-userInputs -->
+              <div class="exercise__middle-bar">
+                <div class="toggle-author-container">
+                  <div id="ShowAnswerBtn" class="btn--show-answer"></div>
+                  <div class="exercise-author">
+                    <i class="material-symbols-rounded"> draft_orders </i>
+                    <span id="AuthorFullName">رضا قزلسفلو</span>
+                  </div>
+                </div>
+                <div class="details-inputBtns-container">
+                  <div class="exercise-details">امتحان نهایی - اردیبهشت ۱۳۹۸ - ۲ نمره</div>
+                  <div class="exercise-inputBtns">
+                    <button
+                      name="answer_true"
+                      class="btn--inputs btn--correct"
+                      data-tooltipid="TooltipCorrect"
+                    >
+                      <i class="material-symbols-rounded icon-btn correct-icon">
+                        check_circle
+                      </i></button
+                    ><button
+                      name="answer_false"
+                      class="btn--inputs btn--incorrect"
+                      data-tooltipid="TooltipIncorrect"
+                    >
+                      <i class="material-symbols-rounded icon-btn incorrect-icon">
+                        cancel
+                      </i></button
+                    ><button name="like" class="btn--inputs btn--like" data-tooltipid="TooltipLike">
+                      <i class="material-symbols-rounded icon-btn heart-icon"> favorite </i></button
+                    ><button name="star" class="btn--inputs btn--star" data-tooltipid="TooltipStar">
+                      <i class="material-symbols-rounded icon-btn star-icon"> stars </i></button
+                    ><button
+                      name="report"
+                      class="btn--inputs btn--report"
+                      data-tooltipid="TooltipReport"
+                    >
+                      <i class="material-symbols-rounded icon-btn report-icon"> error </i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Row 5 : Answer Box -->
+              <div class="exercise__answer-box">
+                <div class="descriptive-answer">
+                  <h2>پاسخ: گزینه ۴</h2>
+                  <p>
+                    منظور از صورت سؤال در گوسفند، سیرابی و در کرم خاکی، ملخ و پرندۀ دانه‌خوار،
+                    چینه‌دان است.
+                    <span class="ref-page" data-ref-page="46" data-ref-id="ref1">۴۶</span>
+                    با توجه به تصویر زیر، در پرندۀ دانه‌خوار، چینه‌دان غذا را به معده که جلوی سنگدان
+                    قرار گرفته است، وارد می‌کند.
+                  </p>
+
+                  <h2>بررسی سایر گزینه‌ها:</h2>
+
+                  <div class="option">
+                    <strong>گزینه ۱:</strong> نادرست. در گوسفند (نشخوارکنندگان)، سیرابی توان تولید
+                    آنزیم لازم برای هضم سلولز را ندارد و از این نظر وابسته به میکروب‌های دارای آنزیم
+                    سلولاز است که در این بخش به‌صورت همزیست وجود دارند.
+
+                    <span class="ref-page" data-ref-page="19" data-ref-id="ref2">۱۹</span>
+                  </div>
+
+                  <div class="option">
+                    <strong>گزینه ۲:</strong> نادرست. شروع گوارش مکانیکی و شیمیایی در انسان از دهان
+                    است، نه معده.
+
+                    <span class="ref-page" data-ref-page="57" data-ref-id="ref3">۵۷</span>
+                  </div>
+
+                  <div class="option">
+                    <strong>گزینه ۳:</strong> نادرست. در ملخ، خود چینه‌دان بخش حجیم انتهای مری است
+                    که غذا را به پیش‌معده می‌دهد.
+                    <span class="ref-page" data-ref-page="25" data-ref-id="ref4">۲۵</span>
+                  </div>
+                </div>
+                <!-- Row 6 : References -->
+                <div class="bottom-bar">
+                  <ul class="ref-list">
+                    <li class="ref-book horizontally-scrollable">
+                      <span class="book">زیست شناسی ۱</span>
+                      <ul class="pages horizontally-scrollable">
+                        <li class="ref-page" data-ref-page="19">۱۹</li>
+                        <li class="ref-page" data-ref-page="25">۲۵</li>
+                        <li class="ref-page" data-ref-page="46">۴۶</li>
+                        <li class="ref-page" data-ref-page="57">۵۷</li>
+                        <li class="ref-page" data-ref-page="104">۱۰۴</li>
+                        <li class="ref-page" data-ref-page="8">۸</li>
+                        <li class="ref-page" data-ref-page="67">۶۷</li>
+                        <li class="ref-page" data-ref-page="54">۵۴</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- textSelectionToolbarE -->
+              <div class="text-selection-toolbar no-select" id="textSelectionToolbarE">
+                <button class="add-ref-btn" id="addRefBtn">ارجاع</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="yavar-container">
+            <div class="chat-container">
+              <div class="messages-container">
+                <div class="welcome-massage">
+                  <img class="yavar-character" src="../imgs/darsyavar0-nobg.png" alt="" />
+                  <div class="greeting-message">
+                    در خدمتم حُدِیث جان <br />هر سوال درسی یا مشاوره‌ای داشتی <br />می‌تونی از من
+                    بپرسی 🤗
+                  </div>
+                </div>
+              </div>
+              <div class="chat-input-container">
+                <textarea
+                  class="chat-input"
+                  name="input-message"
+                  id="chatInput"
+                  placeholder="سؤالت رو اینجا بنویس..."
+                ></textarea>
+                <button class="send-btn" id="sendButton">
+                  <i class="material-symbols-rounded"> arrow_circle_up </i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- javascripts -->
+    <script type="module" src="../main-layout/main.js"></script>
+    <script type="module" src="../main-layout/userData.js"></script>
+    <script type="module" src="../book-app/bookApp.js"></script>
+    <script type="module" src="../exercise-app/exerciseApp.js"></script>
+    <script type="module" src="../exercise-app/floating-label.js"></script>
+    <script type="module" src="../exercise-app/exercise-filter-steps.js"></script>
+    <script type="module" src="../main-layout/jumpToRef.js"></script>
+    <script type="module" src="./addTocListToFilter.js"></script>
+    <script type="module" src="./createRef.js"></script>
+    <script type="module" src="../yavar-ai/main.js"></script>
+    <!-- <script src="./main copy.js"></script> -->
+    <!-- <script src="./main copy 3.js"></script> -->
+  </body>
+</html>

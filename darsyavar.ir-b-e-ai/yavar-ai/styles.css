@@ -27,10 +27,11 @@ button {
   padding: 8px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap: 10px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
+  padding-top: 48px;
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
@@ -41,17 +42,25 @@ button {
   height: 100%;
 }
 
+.yavar-character {
+  width: 150px;
+}
+
 .messages-container {
-  height: 50vh;
+  /* height: 25vh; */
   padding: 8px;
 }
 
 .welcome-massage {
-  margin-top: 20vh;
+  margin-top: 0vh;
   text-align: center;
   line-height: 2;
   font-size: 20px;
   width: 100%;
+}
+
+.greeting-message {
+  padding-top: 24px;
 }
 
 .chat-input-container {
