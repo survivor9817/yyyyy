@@ -9,11 +9,9 @@
     <link rel="stylesheet" href="../normalize.css" />
     <!-- <link rel="stylesheet" href="./fonts/font-face-parastoo.css" /> -->
     <link rel="stylesheet" href="../fonts/WebFonts/css/fontiran.css" />
-    <link
-      rel="stylesheet"
-      href="../fonts/google-icons/material-symbols-rounded.css"
-    />
+    <link rel="stylesheet" href="../fonts/google-icons/material-symbols-rounded.css" />
     <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./yavar-character-styles.css" />
     <link rel="stylesheet" href="../exercise-app/styles.css" />
     <link rel="stylesheet" href="../book-app/styles.css" />
     <link rel="stylesheet" href="../menu-sidebar/menu-styles.css" />
@@ -37,9 +35,7 @@
       </button>
       <div id="FehrestSection" class="fehrest-section">
         <header class="sidebar-header">
-          <label for="BooksDropdownList" class="books-dropdown-list-label"
-            >فهرست کتاب</label
-          >
+          <label for="BooksDropdownList" class="books-dropdown-list-label">فهرست کتاب</label>
           <select
             id="BooksDropdownList"
             name="BooksDropdownList"
@@ -57,9 +53,9 @@
         <i class="material-symbols-rounded icon--cancel"> cancel </i>
       </button>
       <div id="MenuSection" class="menu-section">
-        <img src="../imgs/reza.jpg" alt="profile-img" class="profile-img" />
-        <div class="profile-name">رضا قزلسفلو</div>
-        <span class="user-role">معلم مدرسه</span>
+        <img src="../imgs/reza.jpg" alt="profile-img" id="ProfileImg" class="profile-img" />
+        <div id="ProfileName" class="profile-name">رضا قزلسفلو</div>
+        <span id="UserRole" class="user-role">معلم مدرسه</span>
         <div class="divider"></div>
         <ul class="menu-items-container">
           <li class="menu-item">صفحه کاربری</li>
@@ -104,10 +100,7 @@
         <div id="TabsContainer" class="tabs-container">
           <div id="BookTabContainer" class="tab-container tab-container--book">
             <!-- textSelectionToolbarB -->
-            <div
-              class="text-selection-toolbar no-select"
-              id="textSelectionToolbarB"
-            >
+            <div class="text-selection-toolbar no-select" id="textSelectionToolbarB">
               <button class="add-ref-btn" id="submitRefBtn">ثبت</button>
             </div>
 
@@ -115,31 +108,14 @@
             <div id="BookToolbar" class="book__toolbar">
               <div id="PageNavigator" class="page-navigator">
                 <button id="PrevPageBtn" class="btn--prev-page">
-                  <i class="material-symbols-rounded icon-btn">
-                    arrow_circle_right
-                  </i>
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_right </i>
                 </button>
                 <button id="NextPageBtn" class="btn--next-page">
-                  <i class="material-symbols-rounded icon-btn">
-                    arrow_circle_left
-                  </i>
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_left </i>
                 </button>
 
-                <input
-                  id="PageInput2"
-                  type="range"
-                  min="1"
-                  maxlength="3"
-                  value="1"
-                  step="1"
-                />
-                <input
-                  id="PageInput"
-                  type="text"
-                  min="1"
-                  pattern=""
-                  inputmode="numeric"
-                />
+                <input id="PageInput2" type="range" min="1" maxlength="3" value="1" step="1" />
+                <input id="PageInput" type="text" min="1" pattern="" inputmode="numeric" />
               </div>
             </div>
 
@@ -147,19 +123,12 @@
             <div id="BookSection" class="book-section"></div>
           </div>
 
-          <div
-            id="ExerciseTabContainer"
-            class="tab-container tab-container--exercise"
-          >
+          <div id="ExerciseTabContainer" class="tab-container tab-container--exercise">
             <!-- filter section -->
             <div class="filter-section">
               <div class="exercise-filter-container">
                 <div class="filter-criteria">
-                  <select
-                    id="Where"
-                    name="Where"
-                    class="filters-dropdown-list"
-                  ></select>
+                  <select id="Where" name="Where" class="filters-dropdown-list"></select>
                   <label for="Where" class="filters-dropdown-list-label"
                     >از کجای کتاب تمرین می‌خوای؟</label
                   >
@@ -174,16 +143,10 @@
                     <option value="2">متوسط</option>
                     <option value="3">سخت</option>
                   </select>
-                  <label for="Level" class="filters-dropdown-list-label"
-                    >در چه سطحی باشند؟</label
-                  >
+                  <label for="Level" class="filters-dropdown-list-label">در چه سطحی باشند؟</label>
                 </div>
                 <div class="filter-criteria">
-                  <select
-                    id="Source"
-                    name="Source"
-                    class="filters-dropdown-list"
-                  >
+                  <select id="Source" name="Source" class="filters-dropdown-list">
                     <option value="" disabled selected>
                       <!-- انتخاب کن.-->
                     </option>
@@ -195,9 +158,7 @@
                     <option value="نمونه دولتی">نمونه دولتی</option>
                     <option value="تألیفی">تألیفی</option>
                   </select>
-                  <label for="Source" class="filters-dropdown-list-label"
-                    >از چه منبعی باشند؟</label
-                  >
+                  <label for="Source" class="filters-dropdown-list-label">از چه منبعی باشند؟</label>
                 </div>
               </div>
 
@@ -213,14 +174,10 @@
               <!-- Row 1 : Navigation Buttons of Exercise Section -->
               <div class="exercise-navbar">
                 <button class="btn--exercise-prev">
-                  <i class="material-symbols-rounded icon-btn">
-                    arrow_circle_right
-                  </i>
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_right </i>
                 </button>
                 <button class="btn--exercise-next">
-                  <i class="material-symbols-rounded icon-btn">
-                    arrow_circle_left
-                  </i>
+                  <i class="material-symbols-rounded icon-btn"> arrow_circle_left </i>
                 </button>
               </div>
 
@@ -245,26 +202,17 @@
                   <div class="question">
                     <p>کدام گزینه، عبارت زیر را به‌طور مناسب کامل می‌کند؟</p>
                     <p>
-                      «در ........... ساختاری که به ذخیرۀ غذا کمک می‌کند و به
-                      جانور امکان می‌دهد تا با دفعات کمتر تغذیه، انرژی مورد نیاز
-                      خود را تأمین کند، ............»
+                      «در ........... ساختاری که به ذخیرۀ غذا کمک می‌کند و به جانور امکان می‌دهد تا
+                      با دفعات کمتر تغذیه، انرژی مورد نیاز خود را تأمین کند، ............»
                     </p>
                   </div>
 
                   <ul class="options">
+                    <li>۱) گوسفند - توانایی تولید آنزیم گوارش دهنده سلولز را دارد.</li>
+                    <li>۲) کرم خاکی - فرایند آسیاب کردن غذا را به انجام می‌رساند.</li>
+                    <li>۳) ملخ - ابتدا مواد غذایی را به بخش حجیم انتهای مری وارد می‌نماید.</li>
                     <li>
-                      ۱) گوسفند - توانایی تولید آنزیم گوارش دهنده سلولز را دارد.
-                    </li>
-                    <li>
-                      ۲) کرم خاکی - فرایند آسیاب کردن غذا را به انجام می‌رساند.
-                    </li>
-                    <li>
-                      ۳) ملخ - ابتدا مواد غذایی را به بخش حجیم انتهای مری وارد
-                      می‌نماید.
-                    </li>
-                    <li>
-                      ۴) پرنده دانه‌خوار - ابتدا مواد غذایی را به بخشی در جلوی
-                      سنگدان منتقل می‌کند.
+                      ۴) پرنده دانه‌خوار - ابتدا مواد غذایی را به بخشی در جلوی سنگدان منتقل می‌کند.
                     </li>
                   </ul>
                 </div>
@@ -276,10 +224,7 @@
                       <i class="material-symbols-rounded"> check_circle </i>
                       <span>درست گفتم!</span>
                     </li>
-                    <li
-                      id="TooltipIncorrect"
-                      class="tooltip tooltip--incorrect"
-                    >
+                    <li id="TooltipIncorrect" class="tooltip tooltip--incorrect">
                       <i class="material-symbols-rounded"> cancel </i>
                       <span>اشتباه گفتم!</span>
                     </li>
@@ -309,9 +254,7 @@
                   </div>
                 </div>
                 <div class="details-inputBtns-container">
-                  <div class="exercise-details">
-                    امتحان نهایی - اردیبهشت ۱۳۹۸ - ۲ نمره
-                  </div>
+                  <div class="exercise-details">امتحان نهایی - اردیبهشت ۱۳۹۸ - ۲ نمره</div>
                   <div class="exercise-inputBtns">
                     <button
                       name="answer_true"
@@ -326,35 +269,19 @@
                       class="btn--inputs btn--incorrect"
                       data-tooltipid="TooltipIncorrect"
                     >
-                      <i
-                        class="material-symbols-rounded icon-btn incorrect-icon"
-                      >
+                      <i class="material-symbols-rounded icon-btn incorrect-icon">
                         cancel
                       </i></button
-                    ><button
-                      name="like"
-                      class="btn--inputs btn--like"
-                      data-tooltipid="TooltipLike"
-                    >
-                      <i class="material-symbols-rounded icon-btn heart-icon">
-                        favorite
-                      </i></button
-                    ><button
-                      name="star"
-                      class="btn--inputs btn--star"
-                      data-tooltipid="TooltipStar"
-                    >
-                      <i class="material-symbols-rounded icon-btn star-icon">
-                        stars
-                      </i></button
+                    ><button name="like" class="btn--inputs btn--like" data-tooltipid="TooltipLike">
+                      <i class="material-symbols-rounded icon-btn heart-icon"> favorite </i></button
+                    ><button name="star" class="btn--inputs btn--star" data-tooltipid="TooltipStar">
+                      <i class="material-symbols-rounded icon-btn star-icon"> stars </i></button
                     ><button
                       name="report"
                       class="btn--inputs btn--report"
                       data-tooltipid="TooltipReport"
                     >
-                      <i class="material-symbols-rounded icon-btn report-icon">
-                        error
-                      </i>
+                      <i class="material-symbols-rounded icon-btn report-icon"> error </i>
                     </button>
                   </div>
                 </div>
@@ -365,43 +292,34 @@
                 <div class="descriptive-answer">
                   <h2>پاسخ: گزینه ۴</h2>
                   <p>
-                    منظور از صورت سؤال در گوسفند، سیرابی و در کرم خاکی، ملخ و
-                    پرندۀ دانه‌خوار، چینه‌دان است.
-                    <span class="ref-page" data-ref-page="46" data-ref-id="ref1"
-                      >۴۶</span
-                    >
-                    با توجه به تصویر زیر، در پرندۀ دانه‌خوار، چینه‌دان غذا را به
-                    معده که جلوی سنگدان قرار گرفته است، وارد می‌کند.
+                    منظور از صورت سؤال در گوسفند، سیرابی و در کرم خاکی، ملخ و پرندۀ دانه‌خوار،
+                    چینه‌دان است.
+                    <span class="ref-page" data-ref-page="46" data-ref-id="ref1">۴۶</span>
+                    با توجه به تصویر زیر، در پرندۀ دانه‌خوار، چینه‌دان غذا را به معده که جلوی سنگدان
+                    قرار گرفته است، وارد می‌کند.
                   </p>
 
                   <h2>بررسی سایر گزینه‌ها:</h2>
 
                   <div class="option">
-                    <strong>گزینه ۱:</strong> نادرست. در گوسفند (نشخوارکنندگان)،
-                    سیرابی توان تولید آنزیم لازم برای هضم سلولز را ندارد و از
-                    این نظر وابسته به میکروب‌های دارای آنزیم سلولاز است که در
-                    این بخش به‌صورت همزیست وجود دارند.
+                    <strong>گزینه ۱:</strong> نادرست. در گوسفند (نشخوارکنندگان)، سیرابی توان تولید
+                    آنزیم لازم برای هضم سلولز را ندارد و از این نظر وابسته به میکروب‌های دارای آنزیم
+                    سلولاز است که در این بخش به‌صورت همزیست وجود دارند.
 
-                    <span class="ref-page" data-ref-page="19" data-ref-id="ref2"
-                      >۱۹</span
-                    >
+                    <span class="ref-page" data-ref-page="19" data-ref-id="ref2">۱۹</span>
                   </div>
 
                   <div class="option">
-                    <strong>گزینه ۲:</strong> نادرست. شروع گوارش مکانیکی و
-                    شیمیایی در انسان از دهان است، نه معده.
+                    <strong>گزینه ۲:</strong> نادرست. شروع گوارش مکانیکی و شیمیایی در انسان از دهان
+                    است، نه معده.
 
-                    <span class="ref-page" data-ref-page="57" data-ref-id="ref3"
-                      >۵۷</span
-                    >
+                    <span class="ref-page" data-ref-page="57" data-ref-id="ref3">۵۷</span>
                   </div>
 
                   <div class="option">
-                    <strong>گزینه ۳:</strong> نادرست. در ملخ، خود چینه‌دان بخش
-                    حجیم انتهای مری است که غذا را به پیش‌معده می‌دهد.
-                    <span class="ref-page" data-ref-page="25" data-ref-id="ref4"
-                      >۲۵</span
-                    >
+                    <strong>گزینه ۳:</strong> نادرست. در ملخ، خود چینه‌دان بخش حجیم انتهای مری است
+                    که غذا را به پیش‌معده می‌دهد.
+                    <span class="ref-page" data-ref-page="25" data-ref-id="ref4">۲۵</span>
                   </div>
                 </div>
                 <!-- Row 6 : References -->
@@ -425,10 +343,7 @@
               </div>
 
               <!-- textSelectionToolbarE -->
-              <div
-                class="text-selection-toolbar no-select"
-                id="textSelectionToolbarE"
-              >
+              <div class="text-selection-toolbar no-select" id="textSelectionToolbarE">
                 <button class="add-ref-btn" id="addRefBtn">ارجاع</button>
               </div>
             </div>
@@ -438,9 +353,14 @@
             <div class="chat-container">
               <div class="messages-container">
                 <div class="welcome-massage">
-                  <div>در خدمتم رضا جان</div>
-                  <div>
-                    هر سوال درسی یا مشاوره‌ای داشتی <br />می‌تونی از من بپرسی 🤗
+                  <img
+                    class="yavar-character float-animation"
+                    src="../imgs/darsyavar0-nobg.png"
+                    alt=""
+                  />
+                  <div class="greeting-message">
+                    در خدمتم رضا جان <br />هر سوال درسی یا مشاوره‌ای داشتی <br />می‌تونی از من بپرسی
+                    🤗
                   </div>
                 </div>
               </div>
@@ -463,13 +383,11 @@
 
     <!-- javascripts -->
     <script type="module" src="../main-layout/main.js"></script>
+    <!-- <script type="module" src="../main-layout/userData.js"></script> -->
     <script type="module" src="../book-app/bookApp.js"></script>
     <script type="module" src="../exercise-app/exerciseApp.js"></script>
     <script type="module" src="../exercise-app/floating-label.js"></script>
-    <script
-      type="module"
-      src="../exercise-app/exercise-filter-steps.js"
-    ></script>
+    <script type="module" src="../exercise-app/exercise-filter-steps.js"></script>
     <script type="module" src="../main-layout/jumpToRef.js"></script>
     <script type="module" src="./addTocListToFilter.js"></script>
     <script type="module" src="./createRef.js"></script>
@@ -478,5 +396,3 @@
     <!-- <script src="./main copy 3.js"></script> -->
   </body>
 </html>
-
-
